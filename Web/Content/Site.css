@@ -1,0 +1,41 @@
+﻿body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+
+@font-face {
+    font-family: "yekan";
+    src: url(./fonts/Yekan.eot);
+    src: url(./fonts/Yekan.eot?#iefix) format("embedded-opentype"), url(./fonts/Yekan.woff) format("woff"), url(./fonts/Yekan.ttf) format("truetype"), url(./fonts/Yekan.svg#BYekan) format("svg");
+    font-weight: normal;
+    font-style: normal;
+}
+
+body, h1, h2, h3, h4, h5, h6 {
+    font-family: yekan !important;
+}
+
+img.img-responsive-small {
+    max-width: 300px;
+    max-height: 200px;
+}

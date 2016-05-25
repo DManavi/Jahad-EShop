@@ -1,0 +1,67 @@
+﻿@model IEnumerable<Web.Models.GalleryItem>
+
+@{
+    ViewBag.Title = "گالری " + ViewBag.Category.Title;
+    Layout = "~/Areas/Management/Views/Shared/_Layout.cshtml";
+}
+
+<h2>گالری @ViewBag.Category.Title</h2>
+
+<div class="pull-left">
+    @Html.ActionLink("لیست گالری ها", "Index", "Galleries")
+</div>
+
+<p>
+    @Html.ActionLink("+ ایجاد آیتم", "Create", new { id = ViewBag.Category.Id })
+</p>
+
+<div class="clearfix"></div>
+
+<table class="table">
+    <tr>
+        <th class="text-center">
+            @Html.DisplayNameFor(model => model.Title)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Content)
+        </th>
+        <th class="text-center">
+            تصویر
+        </th>
+        <th class="text-center">
+            @Html.DisplayNameFor(model => model.Visits)
+        </th>
+        <th class="text-center">
+            عملیات
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td class="text-center">
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Content)
+            </td>
+            <th class="text-center">
+                <img class="img-responsive-small" src="@FileMethods.Address("Gallery", item.Id)" alt="@item.Title" />
+            </th>
+            <td class="text-center">
+                @Html.DisplayFor(modelItem => item.Visits)
+            </td>
+            <td class="text-center">
+                @Html.ActionLink("ویرایش", "Edit", new { id = item.Id }) |
+                @Html.ActionLink("حذف", "Delete", new { id = item.Id })
+            </td>
+        </tr>
+    }
+
+</table>
+
+<div class="pull-left">
+    @Html.ActionLink("لیست گالری ها", "Index", "Galleries")
+</div>
+
+<div class="clearfix"></div>

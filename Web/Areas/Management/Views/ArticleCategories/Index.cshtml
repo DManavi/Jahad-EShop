@@ -1,0 +1,56 @@
+﻿@model IEnumerable<Web.Models.ArticleCategory>
+
+@{
+    ViewBag.Title = "مقالات - دسته بندی";
+    Layout = "~/Areas/Management/Views/Shared/_Layout.cshtml";
+}
+
+<h2>دسته بندی مقالات</h2>
+
+<p>
+    @Html.ActionLink("+ دسته بندی جدید", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Title)
+        </th>
+        <th class="text-center">
+            فعال
+        </th>
+        <th class="text-center">
+            تعداد مقالات
+        </th>
+        <th class="text-center">
+            عملیات
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td class="text-center">
+                @if (item.Enabled)
+                {
+                    <span>بله</span>
+                }
+                else
+                {
+                    <span>خیر</span>
+                }
+            </td>
+            <td class="text-center">
+                @item.Articles.Count
+            </td>
+            <td class="text-center">
+                @Html.ActionLink("ویرایش", "Edit", new { id = item.Id }) |
+                @Html.ActionLink("حذف", "Delete", new { id = item.Id }) |
+                @Html.ActionLink("مقالات", "Index", "Articles", new { id = item.Id }, null)
+            </td>
+        </tr>
+    }
+
+</table>

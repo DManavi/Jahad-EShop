@@ -1,0 +1,63 @@
+﻿@{
+    ViewBag.Title = "مدیریت سایت";
+    Layout = "~/Areas/Management/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+    .thumbnail-custom {
+        min-height: 100px;
+    }
+
+    .font-icon-xl {
+        font-size: 35px;
+    }
+</style>
+
+<h2>داشبورد</h2>
+
+<div class="row">
+    <div class="col-xs-3 col-md-3 text-center">
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <i class="glyphicon glyphicon-list-alt font-icon-xl"></i>
+                <br />
+                <a href="@Url.Action("Index", "ArticleCategories")" class="thumbnail-custom">
+                    <span>مقالات</span>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="col-xs-3 col-md-3 text-center">
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <i class="glyphicon glyphicon-calendar font-icon-xl"></i>
+                <br />
+                <a href="@Url.Action("Index", "NewsCategories")" class="thumbnail-custom">
+                    <span>اخبار</span>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="col-xs-3 col-md-3 text-center">
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <i class="glyphicon glyphicon-picture font-icon-xl"></i>
+                <br />
+                <a href="@Url.Action("Index", "Galleries")" class="thumbnail-custom">
+                    <span>گالری</span>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="col-xs-3 col-md-3 text-center">
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <i class="glyphicon glyphicon-user font-icon-xl"></i>
+                <br />
+                <a href="@Url.Action("Index", "Users")" class="thumbnail-custom">
+                    <span>کاربران</span>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>

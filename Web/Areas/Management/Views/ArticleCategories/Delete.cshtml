@@ -1,0 +1,43 @@
+﻿@model Web.Models.ArticleCategory
+
+@{
+    ViewBag.Title = "مقالات - حذف دسته بندی";
+    Layout = "~/Areas/Management/Views/Shared/_Layout.cshtml";
+}
+
+<h2>حذف دسته بندی</h2>
+
+<h3>آیا از حذف این دسته بندی اطمینان دارید؟</h3>
+
+<div>
+    <h4>دسته بندی مقالات</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Title)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Title)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Enabled)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Enabled)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="حذف" class="btn btn-default" /> |
+            @Html.ActionLink("انصراف", "Index")
+        </div>
+    }
+</div>

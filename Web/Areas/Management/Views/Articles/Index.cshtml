@@ -1,0 +1,74 @@
+﻿@model IEnumerable<Web.Models.Article>
+
+@{
+    ViewBag.Title = "لیست مقالات " + ViewBag.Category.Title;
+    Layout = "~/Areas/Management/Views/Shared/_Layout.cshtml";
+}
+
+<h2>لیست مقالات @ViewBag.Category.Title</h2>
+
+<div class="pull-left">
+    @Html.ActionLink("دسته بندی مقالات", "Index", "ArticleCategories")
+</div>
+
+<p>
+    @Html.ActionLink("+ ایجاد مقاله جدید", "Create", new { id = ViewBag.Category.Id })
+</p>
+
+<div class="clearfix"></div>
+
+<table class="table table-responsive table-hover">
+    <tr>
+        <th class="text-center">
+            @Html.DisplayNameFor(model => model.Title)
+        </th>
+        <th class="text-center">
+            @Html.DisplayNameFor(model => model.Abstract)
+        </th>
+        <th class="text-center">
+            @Html.DisplayNameFor(model => model.Visits)
+        </th>
+        <th class="text-center">
+            تصویر
+        </th>
+        <th class="text-center">
+            عملیات
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td class="text-center">
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Abstract)
+            </td>
+            <td class="text-center">
+                @Html.DisplayFor(modelItem => item.Visits)
+            </td>
+            <td class="text-center">
+                @if (item.HasImage)
+                {
+                    <img class="img-responsive-small" src="@FileMethods.Address("Articles", item.Id)" alt="@item.Title" />
+                }
+                else
+                {
+                    <span>ندارد</span>
+                }
+            </td>
+            <td class="text-center">
+                @Html.ActionLink("ویرایش", "Edit", new { id = item.Id }) |
+                @Html.ActionLink("حذف", "Delete", new { id = item.Id })
+            </td>
+        </tr>
+    }
+
+</table>
+
+<div class="pull-left">
+    @Html.ActionLink("دسته بندی مقالات", "Index", "ArticleCategories")
+</div>
+
+<div class="clearfix"></div>
